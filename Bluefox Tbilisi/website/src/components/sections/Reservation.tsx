@@ -66,8 +66,8 @@ export function Reservation() {
 
   const inputClasses = (hasError: boolean) =>
     cn(
-      "w-full bg-brand-card border rounded-lg px-4 py-3 text-sm text-brand-cream placeholder:text-brand-warm-gray/60 outline-none transition-all duration-300",
-      "focus:border-brand-amber focus:ring-1 focus:ring-brand-amber/30",
+      "w-full bg-white border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-text-light outline-none transition-all duration-300",
+      "focus:border-brand-blue focus:ring-1 focus:ring-brand-blue/30",
       hasError ? "border-red-500/60" : "border-brand-border"
     );
 
@@ -83,7 +83,7 @@ export function Reservation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-cream mb-4"
+              className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-text mb-4"
             >
               {t.reservation.title}
             </motion.h2>
@@ -92,7 +92,7 @@ export function Reservation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-brand-warm-gray text-sm sm:text-base mb-10"
+              className="text-brand-text-muted text-sm sm:text-base mb-10"
             >
               {t.reservation.subtitle}
             </motion.p>
@@ -133,7 +133,7 @@ export function Reservation() {
                   <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-6">
                     <Check size={28} className="text-green-400" />
                   </div>
-                  <p className="heading-serif text-2xl text-brand-cream text-center mb-2">
+                  <p className="heading-serif text-2xl text-brand-text text-center mb-2">
                     {t.reservation.form.success}
                   </p>
                 </motion.div>
@@ -144,12 +144,12 @@ export function Reservation() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleSubmit}
-                  className="space-y-5 border border-brand-border rounded-2xl p-6 sm:p-8 bg-brand-card/50"
+                  className="space-y-5 border border-brand-border rounded-2xl p-6 sm:p-8 bg-white"
                   noValidate
                 >
                   {/* Name */}
                   <div>
-                    <label htmlFor="res-name" className="block text-xs text-brand-warm-gray mb-2 tracking-wide">
+                    <label htmlFor="res-name" className="block text-xs text-brand-text-muted mb-2 tracking-wide">
                       {t.reservation.form.name}
                     </label>
                     <input
@@ -165,7 +165,7 @@ export function Reservation() {
 
                   {/* Phone */}
                   <div>
-                    <label htmlFor="res-phone" className="block text-xs text-brand-warm-gray mb-2 tracking-wide">
+                    <label htmlFor="res-phone" className="block text-xs text-brand-text-muted mb-2 tracking-wide">
                       {t.reservation.form.phone}
                     </label>
                     <input
@@ -182,7 +182,7 @@ export function Reservation() {
                   {/* Date + Time */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="res-date" className="block text-xs text-brand-warm-gray mb-2 tracking-wide">
+                      <label htmlFor="res-date" className="block text-xs text-brand-text-muted mb-2 tracking-wide">
                         {t.reservation.form.date}
                       </label>
                       <input
@@ -196,7 +196,7 @@ export function Reservation() {
                       {errors.date && <p className="text-xs text-red-400 mt-1">{errors.date}</p>}
                     </div>
                     <div>
-                      <label htmlFor="res-time" className="block text-xs text-brand-warm-gray mb-2 tracking-wide">
+                      <label htmlFor="res-time" className="block text-xs text-brand-text-muted mb-2 tracking-wide">
                         {t.reservation.form.time}
                       </label>
                       <select
@@ -218,7 +218,7 @@ export function Reservation() {
 
                   {/* Guests */}
                   <div>
-                    <label htmlFor="res-guests" className="block text-xs text-brand-warm-gray mb-2 tracking-wide">
+                    <label htmlFor="res-guests" className="block text-xs text-brand-text-muted mb-2 tracking-wide">
                       {t.reservation.form.guests}
                     </label>
                     <select
@@ -237,7 +237,7 @@ export function Reservation() {
 
                   {/* Special Requests */}
                   <div>
-                    <label htmlFor="res-requests" className="block text-xs text-brand-warm-gray mb-2 tracking-wide">
+                    <label htmlFor="res-requests" className="block text-xs text-brand-text-muted mb-2 tracking-wide">
                       {t.reservation.form.requests}
                     </label>
                     <textarea
@@ -253,7 +253,7 @@ export function Reservation() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 bg-brand-amber text-brand-dark font-medium text-sm tracking-wider uppercase rounded-lg hover:bg-brand-amber-light transition-all duration-300 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed glow-amber flex items-center justify-center gap-2"
+                    className="w-full py-3.5 bg-brand-blue text-white font-medium text-sm tracking-wider uppercase rounded-lg hover:bg-brand-blue-light transition-all duration-300 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed glow-blue flex items-center justify-center gap-2"
                   >
                     {isSubmitting && <Loader2 size={16} className="animate-spin" />}
                     {t.reservation.form.submit}

@@ -20,7 +20,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-cream mb-8"
+              className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-text mb-8"
             >
               {t.about.title}
             </motion.h2>
@@ -32,7 +32,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="text-brand-warm-gray leading-relaxed mb-5 text-sm sm:text-base"
+                className="text-brand-text-muted leading-relaxed mb-5 text-sm sm:text-base"
               >
                 {paragraph}
               </motion.p>
@@ -47,7 +47,7 @@ export function About() {
               className="mt-8 inline-flex items-center gap-3 border border-brand-border rounded-full px-5 py-2.5"
             >
               <span className="text-lg">🐾</span>
-              <span className="text-xs tracking-wide text-brand-warm-gray">{t.dogFriendly}</span>
+              <span className="text-xs tracking-wide text-brand-text-muted">{t.dogFriendly}</span>
             </motion.div>
           </div>
 
@@ -75,7 +75,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="absolute -bottom-8 -left-4 sm:-left-8 w-40 sm:w-52 h-52 sm:h-64 rounded-xl overflow-hidden border-4 border-brand-dark shadow-2xl"
+              className="absolute -bottom-8 -left-4 sm:-left-8 w-40 sm:w-52 h-52 sm:h-64 rounded-xl overflow-hidden border-4 border-white shadow-2xl"
             >
               <img
                 src="/images/greenhouse-candles.jpg"
@@ -108,7 +108,7 @@ export function About() {
 
               {/* Chef name overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                <p className="text-xs tracking-[0.2em] uppercase text-brand-amber mb-1">
+                <p className="text-xs tracking-[0.2em] uppercase text-brand-blue-light mb-1">
                   {t.about.chefTitle}
                 </p>
                 <p className="heading-serif text-2xl sm:text-3xl text-brand-cream">
@@ -126,8 +126,8 @@ export function About() {
                 transition={{ duration: 0.5 }}
                 className="mb-6 flex items-center gap-3"
               >
-                <span className="h-px w-8 bg-brand-turquoise" />
-                <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-turquoise">
+                <span className="h-px w-8 bg-brand-blue" />
+                <span className="text-xs font-medium tracking-[0.2em] uppercase text-brand-blue-light">
                   {t.about.chefTitle}
                 </span>
               </motion.div>
@@ -137,7 +137,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="heading-serif text-4xl sm:text-5xl text-brand-cream mb-8"
+                className="heading-serif text-4xl sm:text-5xl text-brand-text mb-8"
               >
                 {t.about.chefName}
               </motion.h3>
@@ -147,7 +147,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-brand-warm-gray leading-relaxed mb-8 text-sm sm:text-base"
+                className="text-brand-text-muted leading-relaxed mb-8 text-sm sm:text-base"
               >
                 {t.about.chefDescription}
               </motion.p>
@@ -160,10 +160,10 @@ export function About() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="border-t border-brand-border pt-6"
               >
-                <p className="text-xs tracking-[0.15em] uppercase text-brand-warm-gray mb-2">
-                  Experience
+                <p className="text-xs tracking-[0.15em] uppercase text-brand-text-muted mb-2">
+                  {t.about.chefTitle}
                 </p>
-                <p className="text-sm text-brand-turquoise font-medium tracking-wide">
+                <p className="text-sm text-brand-blue-light font-medium tracking-wide">
                   {t.about.chefCredentials}
                 </p>
               </motion.div>

@@ -67,16 +67,16 @@ export function Dishes() {
   const { t, language } = useLanguage();
 
   return (
-    <SectionWrapper id="dishes" className="bg-brand-darker">
+    <SectionWrapper id="dishes" className="bg-brand-blue-50">
       <Container>
         <div className="text-center mb-16">
-          <SectionLabel text={t.dishes.sectionLabel} />
+          <SectionLabel text={t.dishes.sectionLabel} center />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-cream mb-4"
+            className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-text mb-4"
           >
             {t.dishes.title}
           </motion.h2>
@@ -85,7 +85,7 @@ export function Dishes() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-brand-warm-gray text-sm sm:text-base max-w-md mx-auto"
+            className="text-brand-text-muted text-sm sm:text-base max-w-md mx-auto"
           >
             {t.dishes.subtitle}
           </motion.p>
@@ -105,12 +105,12 @@ export function Dishes() {
               <img
                 src={dish.src}
                 alt={dish.alt}
-                className={`w-full ${dish.height} object-cover transition-transform duration-700 group-hover:scale-110`}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
               {/* Warm overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-              <div className="absolute inset-0 bg-brand-amber/0 group-hover:bg-brand-amber/5 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/10 transition-colors duration-500" />
 
               {/* Text overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">

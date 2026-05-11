@@ -4,11 +4,11 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "../../hooks/useLanguage";
 
 const heroImages = [
-  { src: "/images/courtyard-wide.jpg", alt: "Blue Fox courtyard with turquoise balconies" },
-  { src: "/images/venue-2.jpg", alt: "Evening courtyard with olive tree and candlelit tables" },
-  { src: "/images/greenhouse-night.jpg", alt: "Glass greenhouse dining at dusk" },
-  { src: "/images/entrance-gate.jpg", alt: "Ornate Georgian entrance gate" },
-  { src: "/images/ambiance-1.jpg", alt: "Greenhouse at night with warm glow" },
+  { src: "/images/courtyard-wide.jpg", alt: "Blue Fox courtyard" },
+  { src: "/images/venue-2.jpg", alt: "Evening courtyard" },
+  { src: "/images/greenhouse-night.jpg", alt: "Greenhouse dining" },
+  { src: "/images/entrance-gate.jpg", alt: "Entrance gate" },
+  { src: "/images/ambiance-1.jpg", alt: "Night ambiance" },
 ];
 
 export function Hero() {
@@ -25,15 +25,11 @@ export function Hero() {
   }, [nextImage]);
 
   const handleScrollDown = () => {
-    const aboutSection = document.querySelector("#about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
+    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden" aria-label="Hero">
-      {/* Background Images with Crossfade */}
       <AnimatePresence mode="popLayout">
         <motion.div
           key={currentImage}
@@ -52,13 +48,9 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Dark Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand-dark/30 to-brand-dark/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/50 via-transparent to-brand-dark/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
 
-      {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 sm:px-8">
-        {/* Logo Mark */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,45 +58,41 @@ export function Hero() {
           className="mb-6"
         >
           <div className="flex items-center gap-3">
-            <span className="h-px w-12 bg-brand-amber/60" />
-            <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] uppercase text-brand-amber">
+            <span className="h-px w-12 bg-white/40" />
+            <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] uppercase text-white/80">
               Est. 2022
             </span>
-            <span className="h-px w-12 bg-brand-amber/60" />
+            <span className="h-px w-12 bg-white/40" />
           </div>
         </motion.div>
 
-        {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="heading-serif text-center text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-brand-cream mb-3"
+          className="heading-serif text-center text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white mb-3"
         >
           Blue Fox
         </motion.h1>
 
-        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-sm sm:text-base tracking-[0.2em] uppercase text-brand-warm-gray-light mb-8"
+          className="text-sm sm:text-base tracking-[0.2em] uppercase text-white/70 mb-8"
         >
           {t.hero.tagline}
         </motion.p>
 
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="max-w-xl text-center text-sm sm:text-base text-brand-warm-gray leading-relaxed mb-12"
+          className="max-w-xl text-center text-sm sm:text-base text-white/60 leading-relaxed mb-12"
         >
           {t.hero.subtitle}
         </motion.p>
 
-        {/* CTA Button */}
         <motion.a
           href="#reservation"
           onClick={(e) => {
@@ -116,12 +104,11 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1 }}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="group relative px-8 py-3.5 sm:px-10 sm:py-4 bg-brand-amber text-brand-dark font-medium text-xs sm:text-sm tracking-wider uppercase rounded-full overflow-hidden transition-all duration-300 hover:bg-brand-amber-light glow-amber"
+          className="px-8 py-3.5 sm:px-10 sm:py-4 bg-brand-blue text-white font-medium text-xs sm:text-sm tracking-wider uppercase rounded-full hover:bg-brand-blue-light transition-all duration-300 glow-blue"
         >
-          <span className="relative z-10">{t.hero.cta}</span>
+          {t.hero.cta}
         </motion.a>
 
-        {/* Image Indicators */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -133,7 +120,7 @@ export function Hero() {
               key={i}
               onClick={() => setCurrentImage(i)}
               className={`h-1 rounded-full transition-all duration-500 ${
-                i === currentImage ? "w-8 bg-brand-amber" : "w-2 bg-white/30 hover:bg-white/50"
+                i === currentImage ? "w-8 bg-white" : "w-2 bg-white/30 hover:bg-white/50"
               }`}
               aria-label={`View image ${i + 1}`}
             />
@@ -141,13 +128,12 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.button
         onClick={handleScrollDown}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-warm-gray hover:text-brand-amber transition-colors cursor-pointer group"
+        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 hover:text-white transition-colors cursor-pointer group"
         aria-label={t.hero.scroll}
       >
         <span className="text-[10px] tracking-[0.2em] uppercase">{t.hero.scroll}</span>
@@ -155,7 +141,7 @@ export function Hero() {
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown size={16} className="group-hover:text-brand-amber transition-colors" />
+          <ChevronDown size={16} />
         </motion.div>
       </motion.button>
     </section>

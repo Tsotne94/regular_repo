@@ -1,0 +1,54 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface FadeInProps {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  duration?: number;
+  direction?: "up" | "down" | "left" | "right" | "none";
+  distance?: number;
+  once?: boolean;
+}
+
+export function FadeIn({
+  children,
+  className,
+  delay = 0,
+  duration = 0.7,
+  direction = "up",
+  distance = 30,
+  once = true,
+}: FadeInProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  const directionMap = {
+    up: { y: distance },
+    down: { y: -distance },
+    left: { x: distance },
+    right: { x: -distance },
+    none: {},
+  };
+
+  return (
+    <motion.div
+      className={cn(className)}
+      initial={{ opacity: 0, ...directionMap[direction] }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once, margin: "-50px" }}
+      transition={{
+        duration,
+        delay,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}

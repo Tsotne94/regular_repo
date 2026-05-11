@@ -92,16 +92,16 @@ export function Gallery() {
   ];
 
   return (
-    <SectionWrapper id="gallery" className="bg-brand-darker">
+    <SectionWrapper id="gallery" className="bg-white">
       <Container>
         <div className="text-center mb-16">
-          <SectionLabel text={t.gallery.sectionLabel} />
+          <SectionLabel text={t.gallery.sectionLabel} center />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-cream mb-6"
+            className="heading-serif text-4xl sm:text-5xl lg:text-6xl text-brand-text mb-6"
           >
             {t.gallery.title}
           </motion.h2>
@@ -121,8 +121,8 @@ export function Gallery() {
                 className={cn(
                   "px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300",
                   filter === f.key
-                    ? "bg-brand-turquoise text-brand-dark"
-                    : "border border-brand-border text-brand-warm-gray hover:text-brand-cream hover:border-brand-warm-gray"
+                    ? "bg-brand-blue text-white"
+                    : "border border-brand-border text-brand-text-muted hover:text-brand-text hover:border-brand-blue"
                 )}
               >
                 {f.label}
@@ -159,7 +159,7 @@ export function Gallery() {
                   />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/30 transition-colors duration-500" />
-                  <div className="absolute inset-0 bg-brand-amber/0 group-hover:bg-brand-amber/5 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/10 transition-colors duration-500" />
 
                   {/* Zoom icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
